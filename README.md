@@ -1,4 +1,4 @@
-# README Temperature and Humidity Monitor with Raspberry Pi
+# Temperature and Humidity Monitor with Raspberry Pi
 
 # Description:
 This is a MicroPython script used to monitor temperature and humidity using a DHT11 sensor on a Raspberry Pi Pico W. 
