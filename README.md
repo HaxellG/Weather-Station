@@ -21,3 +21,13 @@ You will also need a DHT11 sensor and an SSD1306 display, both connected to your
 # Usage:
 First, make sure your Raspberry Pi is connected to the same network as your viewing device. Modify the ssid and password 
 variables in the script to match your network's.
+
+Then, you can run the script. The Raspberry Pi will start measuring temperature and humidity and display the data on the 
+OLED display. It will also serve a web page that will display this data. To access the web page, open a browser on any 
+device connected to the same network and navigate to the Raspberry Pi's IP address on port 80.
+
+For example, if the Raspberry Pi's IP address is 192.168.1.100, navigate to http://192.168.1.100.
+
+The web page will automatically refresh every 10 seconds with the latest data.
+
+Please note that the script is configured to use pins 0 and 1 for the I2C connection to the OLED display, and pin 20 for the DHT11 sensor. If your devices are connected to different pins, you will need to modify these values in the script.
