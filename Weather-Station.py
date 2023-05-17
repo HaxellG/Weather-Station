@@ -11,8 +11,8 @@ from dht import DHT11
 from ssd1306 import SSD1306_I2C
 import framebuf
 
-ssid = "MANDALOR"
-password = "laperradaderocky2016"
+ssid = "Your ssid"
+password = "Your password"
 
 station = network.WLAN(network.STA_IF)
 station.active(True)
