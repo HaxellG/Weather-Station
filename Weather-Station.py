@@ -11,8 +11,8 @@ from dht import DHT11
 from ssd1306 import SSD1306_I2C
 import framebuf
 
-ssid = "Your ssid"
-password = "Your password"
+ssid = "ssid"
+password = "password"
 
 station = network.WLAN(network.STA_IF)
 station.active(True)
@@ -35,11 +35,11 @@ T, H = dht11.read()
 def lectura_sensor():
     T, H = dht11.read()
     try:
-        oled.text("Temperatura: "+ str(T)+"C", 0, 0)
-        oled.text("Humedad: "+ str(H)+"%", 0, 30)
+        oled.text("Temperature: "+ str(T)+"C", 0, 0)
+        oled.text("Humidity: "+ str(H)+"%", 0, 30)
         oled.show()
-        print(f"Temperatura: {T}°C")
-        print(f"Humedad: {H}%")
+        print(f"Temperature: {T}°C")
+        print(f"Humidity: {H}%")
     except:
         print("Error...")
     time.sleep(2)
@@ -57,19 +57,25 @@ def pagina_web():
      display: inline-block;
      margin: 0px auto;
      text-align: center;
+     background: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb);
     }
-    h2 { font-size: 2.0rem; }
-    p { font-size: 2.0rem; }
+    h2 { font-size: 2.0rem; color: white; text-shadow: 2px 2px 4px #000000; }
+    p { font-size: 2.0rem; color: white; text-shadow: 2px 2px 4px #000000; margin: 20px; }
     .units { font-size: 1.2rem; }
     .bme-labels{
       font-size: 1.5rem;
       vertical-align:middle;
       padding-bottom: 15px;
+      color: white;
+      text-shadow: 2px 2px 4px #000000;
+    }
+    .fas {
+      animation: fa-spin 20s infinite linear;
     }
   </style>
 </head>
 <body>
-  <h2>DHT11 usando Raspberry</h2>
+  <h2>DHT11 with Raspberry</h2>
   <p>
     <i class="fas fa-thermometer-half" style="color:#059e8a;"></i> 
     <span class="bme-labels">Temperatura:</span> 
@@ -85,6 +91,7 @@ def pagina_web():
 </body>
 </html>"""
   return html
+
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
